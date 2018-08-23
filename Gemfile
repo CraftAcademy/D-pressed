@@ -14,6 +14,7 @@ gem 'haml-rails'
 gem 'devise'
 gem 'aws-sdk-s3', require: false
 gem 'faker'
+gem 'webpacker', '~> 3.4'
 gem 'pundit'
 
 group :development, :test do
