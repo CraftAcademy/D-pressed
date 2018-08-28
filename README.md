@@ -33,11 +33,11 @@ Dpressed uses Cucumber for acceptance test and Rspec for unit test.
 
 To run the tests individually, use the following:
 
-acceptance test:
+Acceptance test:
 
 `bundle exec cucumber`
 
-unit test:
+Unit test:
 
 `bundle exec rspec`
 
