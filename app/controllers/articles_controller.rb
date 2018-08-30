@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!, except: [:index]
+  before_action :load_categories, only: [:index, :show, :new, :create]
   
   def index
     @articles = Article.all
@@ -20,15 +21,15 @@ class ArticlesController < ApplicationController
     if @article.persisted?
       redirect_to root_path, notice: t('article_successfully_created.')
     else
-      flash[:error] = t('Fields can\'t be blank. Your article could not be saved')
+      flash[:error] = t('empty_field')
       render :new
     end
   end
   
-   private
-   
+  private
+
   def article_params
-    params.require(:article).permit(:title, :body, :image)
+    params.require(:article).permit(:title, :body, :image, :category_id)
   end
 
 end

@@ -19,6 +19,8 @@ module DPressed
     config.i18n.available_locales [:se, :en]
     config.i18n.default_locale :en
 
+    config.i18n.default_locale :en
+
     config.generators do |generate|
       generate.helper false
       generate.assets false
@@ -27,6 +29,14 @@ module DPressed
       generate.routing_specs false
       generate.controller_specs false
       generate.system_tests false
+
+      config.middleware.insert_before 0, Rack::Cors do
+        allow do
+          origins '*'
+          resource '*', headers: :any, methods: [:get, :post, :put, :delete],
+          expose: ['access-token', 'expiry', 'token-type', 'uid', 'client']
+        end
+      end
     end
 
     config.stripe.publishable_key = Rails.application.credentials.stripe[:pub_key]
