@@ -12,6 +12,10 @@ Rails.application.routes.draw do
     resources :categories
   end
 
+
+  resources :users, only: [:show, :update]
+  post :charges, controller: :users, action: :create_subscription
+
   scope "(:locale)", locale: /en|se/ do
     resources :books
   end

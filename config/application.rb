@@ -38,5 +38,9 @@ module DPressed
         end
       end
     end
+
+    config.stripe.publishable_key = Rails.application.credentials.stripe[:pub_key]
+    config.stripe.secret_key = Rails.application.credentials.stripe[:secret_key]
+
   end
 end
