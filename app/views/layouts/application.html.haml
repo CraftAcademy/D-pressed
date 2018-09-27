@@ -13,4 +13,11 @@
     = stylesheet_pack_tag 'application'
   %body
     = render 'shared/links_navbar'
+    
+    .notice
+      = flash[:notice]
+    .alert
+      = flash[:error]
+    
+    = "You are viewing the #{@edition} Edition"
     = yield

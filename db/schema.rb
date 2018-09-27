@@ -82,6 +82,8 @@ ActiveRecord::Schema.define(version: 2018_08_27_165812) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "role"
+    t.float "latitude"
+    t.float "longitude"
     t.string "provider", default: "email", null: false
     t.string "uid", default: "", null: false
     t.text "tokens"
